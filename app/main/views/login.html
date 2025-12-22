@@ -16,6 +16,7 @@
 
         :root{
             --green-color: #26D968;
+            --green-color2: #26ae58;
             --blue-color: #1291db;
             --orange-color: #d55900;
             --yellow-color:#f9f936;
@@ -30,6 +31,25 @@
 
         .inter{
             font-family: "Inter", sans-serif;
+        }
+
+        .btnSelect{
+            background-color: #161A1C;
+            border: 2px solid var(--green-color);
+            font-weight: 700;
+            color: var(--green-color);
+        }
+
+        label{
+            pointer-events: none;
+        }
+
+        input:focus ~ label, 
+        input:not(:placeholder-shown) ~ label{
+            transform: translateY(-17px);
+            font-size: 11px;
+            transition: 0.2s ease-in-out;
+            color: var(--green-color);
         }
     </style>
 </head>
@@ -49,6 +69,120 @@
                 </a>
             </div>
         </header>
+
+        <div class="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 m-auto fixed w-[90%] sm:w-[460px] h-[480px] sm:h-[470px] rounded-2xl bg-[#161A1C] border border-gray-700 overflow-y-auto">
+            <div class="text-center flex flex-col items-center pt-8 space-y-2">
+                <div class="flex flex-col items-center space-y-2">
+                    <i class="bi bi-person-fill text-5xl text-[var(--green-color)]"></i>
+                    <h1 id="TitleForm" class="text-[var(--green-color)] inter font-semibold text-xl">Login</h1>
+                </div>
+
+                <p id="legendForm" class="text-gray-400 px-6 text-sm">É bom lhe ver denovo! Vamos lá retornar aos trabalhos.</p>
+
+                <div class="w-[87%] flex items-center gap-4 bg-[#1f262a] rounded-xl text-gray-400 p-2">
+                    <button id="btnLogin" class="w-[50%] py-1 rounded-lg btnSelect btnForms">
+                        <p class="inter">Login</p>
+                    </button>
+
+                    <button id="btnCad" class="w-[50%] py-1 rounded-lg btnForms">
+                        <p class="inter">Cadastro</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Form Login -->
+            <form class="flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="" method="POST">
+                <div class="w-full flex items-center relative">
+                    <i class="bi bi-envelope-fill absolute text-[var(--green-color)]"></i>
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="email" name="email" id="" placeholder="">
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Email</label>
+                </div>
+
+                <div class="w-full flex items-center relative">
+                    <i class="bi bi-key-fill absolute text-[var(--green-color)]"></i>
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="password" name="senha" id="" placeholder="">
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Senha</label>
+                </div>
+
+                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group">
+                    <p class="inter">Acessar Sistema</p>
+                    <i class="bi bi-box-arrow-in-right group-hover:translate-x-1 transition ease-in-out duration-300"></i>
+                </button>
+
+                <p class="text-center text-gray-400">
+                    <i class="bi bi-question-circle text-sm"></i> Precisando de Ajuda? <a class="text-white font-semibold" href="">Contate-nos</a>
+                </p>
+            </form>
+
+            <!-- Form Cad -->
+            <form class="hidden flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="" method="POST">
+
+                <div class="w-full flex items-center relative">
+                    <i class="bi bi-person-fill absolute text-[var(--green-color)]"></i>
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="text" name="nome" id="" placeholder="">
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Nome</label>
+                </div>
+                
+                <div class="w-full flex items-center relative">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-0 transition ease-in-out duration-300" type="text" name="cpf" id="" placeholder="">
+                    <label class="absolute ml-0 text-gray-400 inter transition ease-in-out duration-300" for="">CPF</label>
+                </div>
+
+               <div class="w-full flex items-center relative">
+                    <i class="bi bi-envelope-fill absolute text-[var(--green-color)]"></i>
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="email" name="email" id="" placeholder="">
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Email</label>
+                </div>
+
+                <div class="w-full flex items-center relative">
+                    <i class="bi bi-key-fill absolute text-[var(--green-color)]"></i>
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="password" name="senha" id="" placeholder="">
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Senha</label>
+                </div>
+
+                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group">
+                    <p class="inter">Verificar Primeiro Acesso</p>
+                    <i class="bi bi-box-arrow-in-right group-hover:translate-x-1 transition ease-in-out duration-300"></i>
+                </button>
+
+                <p class="text-center text-gray-400 pb-12">
+                    <i class="bi bi-question-circle text-sm"></i> Precisando de Ajuda? <a class="text-white font-semibold" href="">Contate-nos</a>
+                </p>
+            </form>
+        </div>
     </div>
+
+    <script>
+
+        const textsForms = [
+            {
+                title: 'Login',
+                legend: 'É bom lhe ver denovo! Vamos lá retornar aos trabalhos.'
+            },
+
+            {
+                title: 'Cadastro',
+                legend: 'Seja bem vindo! Vamos lá começar os trabalhos.'
+            }
+        ]
+
+        const btnForms = document.querySelectorAll(".btnForms");
+        const TitleForm = document.getElementById("TitleForm");
+        const legendForm = document.getElementById("legendForm");
+        const forms = document.querySelectorAll(".forms");
+
+        btnForms.forEach((btn, index) => {
+            btn.onclick = () => {
+                btnForms.forEach((btn) => btn.classList.remove("btnSelect"));
+                btn.classList.add("btnSelect");
+
+                TitleForm.textContent = textsForms[index].title;
+                legendForm.textContent = textsForms[index].legend;
+
+                forms.forEach((form) => form.classList.add("hidden"));
+                forms[index].classList.remove("hidden");
+            }
+        })
+    </script>
 </body>
 </html>
