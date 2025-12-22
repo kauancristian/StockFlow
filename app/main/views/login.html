@@ -69,18 +69,65 @@
             transform-origin: center;
             background-color: #2c453548;
             transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease;
             z-index: -1;
         }
 
         .btnReturn:hover::after{
             transform: translate(-50%, -50%) scale(1);
         }
+
+        @keyframes prenchAnimation {
+            0%{
+                transform: translateY(-15px);
+                opacity: 0;
+            }
+
+            100%{
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+
+        #modalPreenchimento{
+            animation: prenchAnimation 1s ease-in-out ;
+        }
+
+        .btnSpecial{
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btnSpecial::after{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 75%;
+            left: -100%;
+            top: 0;
+            background-image: linear-gradient(120deg, transparent, #ffffff3d, transparent);
+            transition: left 0.6s ease-in-out;
+        }
+
+        .btnSpecial:hover::after{
+            left: 100%;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-l from-[var(--colorBg1)] to-[var(--colorBg2)] min-h-[100vh]">
+
+    <div id="shadow" class="bg-black h-screen inset-0 opacity-80 absolute z-50 hidden"></div>
+    <!-- Modal de Preenchimento -->
+    <div id="modalPreenchimento" class="flex justify-center items-center h-screen z-[9999] relative hidden">
+        <div class="bg-[#161A1C] w-[300px] border border-gray-700 rounded-lg border-l-4 border-l-[var(--green-color)] p-2 flex flex-col items-center justify-center gap-2 absolute z-[9999] drop-shadow-[0_0_5px_#26D968]">
+            <i class="bi bi-ban text-white text-2xl"></i>
+            <p class="text-center text-gray-400 inter">Preencha os campos vazios!</p>
+            <button id="btnPreencher" class="w-[90%] bg-[var(--green-color)] text-white font-semibold inter py-1.5 rounded-lg flex justify-center btnSpecial">Preencher</button>
+        </div>
+    </div>
+
     <div class="h-screen">
-        <header class="bg-[#161A1C]/80 flex justify-between items-center h-[65px] fixed w-screen border-b border-b-[#262626] z-[9999]">
+        <header class="bg-[#161A1C]/80 flex justify-between items-center h-[65px] fixed w-screen border-b border-b-[#262626] z-[500]">
             <div class="flex items-center space-x-2 ml-6">
                 <h1 class="text-white funnel text-xl font-semibold">Stock<span class="text-[var(--green-color)] funnel"> Flow</span></h1>
                 <i class="bi bi-box-seam-fill text-[var(--green-color)] text-xl"></i>
@@ -116,16 +163,16 @@
             </div>
 
             <!-- Form Login -->
-            <form class="flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="" method="POST">
+            <form novalidate id="formLogin" class="flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="" method="POST">
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-envelope-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="email" name="email" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsLogin" type="email" name="email" id="" placeholder="">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Email</label>
                 </div>
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-key-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="password" name="senha" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsLogin" type="password" name="senha" id="" placeholder="">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Senha</label>
                 </div>
 
@@ -140,28 +187,28 @@
             </form>
 
             <!-- Form Cad -->
-            <form class="hidden flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="" method="POST">
+            <form novalidate id="formCad" class="hidden flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="" method="POST">
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-person-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="text" name="nome" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="text" name="nome" id="" placeholder="">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Nome</label>
                 </div>
                 
                 <div class="w-full flex items-center relative">
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-0 transition ease-in-out duration-300" type="text" name="cpf" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-0 transition ease-in-out duration-300 inputsCad" type="text" name="cpf" id="inpCpf" placeholder="">
                     <label class="absolute ml-0 text-gray-400 inter transition ease-in-out duration-300" for="">CPF</label>
                 </div>
 
                <div class="w-full flex items-center relative">
                     <i class="bi bi-envelope-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="email" name="email" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="email" name="email" id="" placeholder="">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Email</label>
                 </div>
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-key-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300" type="password" name="senha" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="password" name="senha" id="" placeholder="">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Senha</label>
                 </div>
 
@@ -178,6 +225,14 @@
     </div>
 
     <script>
+
+        window.onload = () => {
+            document.getElementById("formCad").reset();
+        };
+
+        window.onload = () => {
+            document.getElementById("formLogin").reset();
+        };
 
         const textsForms = [
             {
@@ -207,7 +262,51 @@
                 forms.forEach((form) => form.classList.add("hidden"));
                 forms[index].classList.remove("hidden");
             }
-        })
+        });
+
+        const formLogin = document.getElementById("formLogin");
+        const formCad = document.getElementById("formCad");
+
+        const inputsLogin = document.querySelectorAll(".inputsLogin");
+        const inputsCad = document.querySelectorAll(".inputsCad");
+
+        formLogin.onsubmit = (e) => {
+            let hasError = false;
+
+            inputsLogin.forEach((inputLogin) => {
+                if(inputLogin.value.trim().length === 0) {
+                    hasError = true;
+                };
+            });
+
+            if(hasError) {
+                e.preventDefault();
+                document.getElementById("shadow").classList.remove("hidden");
+                document.getElementById("modalPreenchimento").classList.remove("hidden");
+            };
+        };
+
+        formCad.onsubmit = (e) => {
+            let hasError = false;
+            
+            inputsCad.forEach((inputCad) => {
+                if(inputCad.value.trim().length === 0) {
+                    e.preventDefault();
+                    document.getElementById("shadow").classList.remove("hidden");
+                    document.getElementById("modalPreenchimento").classList.remove("hidden");
+                };
+            });
+        };
+
+        document.getElementById("btnPreencher").onclick = () => {
+            document.getElementById("shadow").classList.add("hidden");
+            document.getElementById("modalPreenchimento").classList.add("hidden");
+        };
+
+        const inpCpf = document.getElementById("inpCpf");
+        inpCpf.oninput = () => {
+
+        };
     </script>
 </body>
 </html>
