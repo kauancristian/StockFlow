@@ -291,11 +291,15 @@
             
             inputsCad.forEach((inputCad) => {
                 if(inputCad.value.trim().length === 0) {
-                    e.preventDefault();
-                    document.getElementById("shadow").classList.remove("hidden");
-                    document.getElementById("modalPreenchimento").classList.remove("hidden");
+                    hasError = true;
                 };
             });
+
+            if(hasError) {
+                e.preventDefault();
+                document.getElementById("shadow").classList.remove("hidden");
+                document.getElementById("modalPreenchimento").classList.remove("hidden");
+            }
         };
 
         document.getElementById("btnPreencher").onclick = () => {
@@ -305,7 +309,9 @@
 
         const inpCpf = document.getElementById("inpCpf");
         inpCpf.oninput = () => {
+            value = inpCpf.value.trim();
 
+            
         };
     </script>
 </body>
