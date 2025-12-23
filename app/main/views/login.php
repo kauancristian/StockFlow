@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <title>Stock Flow | Login</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Allura&family=Anton&family=Assistant:wght@200..800&family=Bangers&family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Comfortaa:wght@300..700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Funnel+Display:wght@300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Love+Ya+Like+A+Sister&family=Monsieur+La+Doulaise&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Oxanium:wght@200..800&family=Passion+One:wght@400;700;900&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rock+Salt&family=Smooch+Sans:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Vina+Sans&display=swap');
@@ -134,7 +135,7 @@
             </div>
 
             <div class="mr-5">
-                <a href="../index.html">
+                <a href="../index.php">
                     <button class="bg-[#193125]/60 rounded-xl py-2 px-4 border border-gray-600 hover:-translate-x-1 transition ease-in-out duration-150 btnReturn">
                         <i class="bi bi-arrow-left text-[var(--green-color)]"></i>
                     </button>
@@ -142,7 +143,7 @@
             </div>
         </header>
 
-        <div class="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 m-auto fixed w-[90%] sm:w-[460px] h-[480px] sm:h-[470px] rounded-2xl bg-[#161A1C] border border-gray-700 overflow-y-auto">
+        <div id="modalform" class="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 m-auto fixed w-[90%] sm:w-[460px] h-[480px] sm:h-[470px] rounded-2xl bg-[#161A1C] border border-gray-700 overflow-y-auto">
             <div class="text-center flex flex-col items-center pt-8 space-y-2">
                 <div class="flex flex-col items-center space-y-2">
                     <i class="bi bi-person-fill text-5xl text-[var(--green-color)]"></i>
@@ -322,6 +323,16 @@
 
             inpCpf.value = value;
         };
+    </script>
+
+    <script>
+        ScrollReveal().reveal('#modalform', {
+            origin: 'top',
+            distance: '40px',
+            duration: 600,
+            delay: 200,
+            easing: 'ease-in-out',
+        });
     </script>
 </body>
 </html>
