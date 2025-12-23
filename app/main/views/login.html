@@ -166,13 +166,13 @@
             <form novalidate id="formLogin" class="flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="" method="POST">
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-envelope-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsLogin" type="email" name="email" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsLogin" type="email" name="email" id="" placeholder="" maxlength="100">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Email</label>
                 </div>
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-key-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsLogin" type="password" name="senha" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsLogin" type="password" name="senha" id="" placeholder="" minlength="6" maxlength="30">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Senha</label>
                 </div>
 
@@ -191,24 +191,24 @@
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-person-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="text" name="nome" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="text" name="nome" id="" placeholder="" maxlength="100">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Nome</label>
                 </div>
                 
                 <div class="w-full flex items-center relative">
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-0 transition ease-in-out duration-300 inputsCad" type="text" name="cpf" id="inpCpf" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-0 transition ease-in-out duration-300 inputsCad" type="text" name="cpf" id="inpCpf" placeholder="" minlength="14" maxlength="14">
                     <label class="absolute ml-0 text-gray-400 inter transition ease-in-out duration-300" for="">CPF</label>
                 </div>
 
                <div class="w-full flex items-center relative">
                     <i class="bi bi-envelope-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="email" name="email" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="email" name="email" id="" placeholder="" maxlength="100">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Email</label>
                 </div>
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-key-fill absolute text-[var(--green-color)]"></i>
-                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="password" name="senha" id="" placeholder="">
+                    <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="password" name="senha" id="" placeholder="" minlength="6" maxlength="30">
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Senha</label>
                 </div>
 
@@ -228,6 +228,7 @@
 
         window.onload = () => {
             document.getElementById("formCad").reset();
+            document.getElementById("inpCpf").reset();
         };
 
         window.onload = () => {
@@ -309,9 +310,17 @@
 
         const inpCpf = document.getElementById("inpCpf");
         inpCpf.oninput = () => {
-            value = inpCpf.value.trim();
+            value = inpCpf.value.trim().replace(/\D/g, '');
 
-            
+            if(value.length > 3 && value.length <= 6) {
+                value = value.slice(0,3) + '.' + value.slice(3);
+            }else if(value.length > 6 && value.length <= 9) {
+                value = value.slice(0,3) + '.' + value.slice(3,6) + '.' + value.slice(6);
+            }else if(value.length > 9) {
+                value = value.slice(0,3) + '.' + value.slice(3,6) + '.' + value.slice(6,9) + '-' + value.slice(9,11);
+            };
+
+            inpCpf.value = value;
         };
     </script>
 </body>
