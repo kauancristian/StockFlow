@@ -183,7 +183,7 @@
                 </button>
 
                 <p class="text-center text-gray-400">
-                    <i class="bi bi-question-circle text-sm"></i> Precisando de Ajuda? <a class="text-white font-semibold" href="">Contate-nos</a>
+                    <i class="bi bi-question-circle text-sm"></i> Precisando de Ajuda? <a class="text-white font-semibold hover:text-[var(--green-color)] transition ease-in-out duration-300" href="">Contate-nos</a>
                 </p>
             </form>
 
@@ -219,7 +219,7 @@
                 </button>
 
                 <p class="text-center text-gray-400 pb-12">
-                    <i class="bi bi-question-circle text-sm"></i> Precisando de Ajuda? <a class="text-white font-semibold" href="">Contate-nos</a>
+                    <i class="bi bi-question-circle text-sm"></i> Precisando de Ajuda? <a class="text-white font-semibold hover:text-[var(--green-color)] transition ease-in-out duration-300" href="">Contate-nos</a>
                 </p>
             </form>
         </div>
