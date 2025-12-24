@@ -127,7 +127,7 @@
             </div>
 
             <div class="mr-6">
-                <a href="views/login.php">
+                <a href="./main/views/login.php">
                     <button class="border border-gray-600 py-2 px-4 rounded-xl flex items-center space-x-2 btnEnter hover:translate-x-1 transition ease-in-out duration-150 bg-[#193125]/60">
                         <p class="text-[var(--green-color)] inter text-sm font-semibold">Entrar</p>
                         <i class="bi bi-box-arrow-in-right text-[var(--green-color)]"></i>
@@ -152,7 +152,7 @@
                 </div>
 
                 <div>
-                    <a href="views/login.php">
+                    <a href="./main/views/login.php">
                         <button id="buttonDiv" class="bg-[var(--green-color)] w-[260px] rounded-lg py-3 text-white flex items-center justify-center space-x-4 btnSpecial hover:bg-[#21bb5a] transition ease-in-out duration-300 drop-shadow-[0_0_5px_#26D968]">
                             <p class="inter text-lg font-semibold">Começar agora</p>
                             <i id="arrow" class="bi bi-arrow-right text-xl"></i>

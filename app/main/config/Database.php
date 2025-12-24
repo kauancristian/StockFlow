@@ -35,6 +35,4 @@
         }
     }
 
-    $db = new Database();
-    $conn = $db->getConnect();
 ?>

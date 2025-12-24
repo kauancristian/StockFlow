@@ -7,6 +7,6 @@
             'user' => 'root',
             'password' => ''
         ]
-    ]
+    ];
 
 ?>

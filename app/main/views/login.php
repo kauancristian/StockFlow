@@ -135,7 +135,7 @@
             </div>
 
             <div class="mr-5">
-                <a href="../index.php">
+                <a href="../../index.php">
                     <button class="bg-[#193125]/60 rounded-xl py-2 px-4 border border-gray-600 hover:-translate-x-1 transition ease-in-out duration-150 btnReturn">
                         <i class="bi bi-arrow-left text-[var(--green-color)]"></i>
                     </button>
@@ -164,20 +164,20 @@
             </div>
 
             <!-- Form Login -->
-            <form novalidate id="formLogin" class="flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="" method="POST">
+            <form novalidate id="formLogin" class="flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="../../actions/usuarioAction.php" method="POST">
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-envelope-fill absolute text-[var(--green-color)]"></i>
                     <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsLogin" type="email" name="email" id="" placeholder="" maxlength="100">
-                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Email</label>
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="email">Email</label>
                 </div>
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-key-fill absolute text-[var(--green-color)]"></i>
                     <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsLogin" type="password" name="senha" id="" placeholder="" minlength="6" maxlength="30">
-                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Senha</label>
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="senha">Senha</label>
                 </div>
 
-                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group">
+                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group" name="action" value="login">
                     <p class="inter">Acessar Sistema</p>
                     <i class="bi bi-box-arrow-in-right group-hover:translate-x-1 transition ease-in-out duration-300"></i>
                 </button>
@@ -188,32 +188,32 @@
             </form>
 
             <!-- Form Cad -->
-            <form novalidate id="formCad" class="hidden flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="" method="POST">
+            <form novalidate id="formCad" class="hidden flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="../../actions/usuarioAction.php" method="POST">
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-person-fill absolute text-[var(--green-color)]"></i>
                     <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="text" name="nome" id="" placeholder="" maxlength="100">
-                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Nome</label>
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="nome">Nome</label>
                 </div>
                 
                 <div class="w-full flex items-center relative">
                     <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-0 transition ease-in-out duration-300 inputsCad" type="text" name="cpf" id="inpCpf" placeholder="" minlength="14" maxlength="14">
-                    <label class="absolute ml-0 text-gray-400 inter transition ease-in-out duration-300" for="">CPF</label>
+                    <label class="absolute ml-0 text-gray-400 inter transition ease-in-out duration-300" for="cpf">CPF</label>
                 </div>
 
                <div class="w-full flex items-center relative">
                     <i class="bi bi-envelope-fill absolute text-[var(--green-color)]"></i>
                     <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="email" name="email" id="" placeholder="" maxlength="100">
-                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Email</label>
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="email">Email</label>
                 </div>
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-key-fill absolute text-[var(--green-color)]"></i>
                     <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsCad" type="password" name="senha" id="" placeholder="" minlength="6" maxlength="30">
-                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="">Senha</label>
+                    <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="senha">Senha</label>
                 </div>
 
-                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group">
+                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group" name="action" value="cadastro">
                     <p class="inter">Verificar Primeiro Acesso</p>
                     <i class="bi bi-key-fill group-hover:translate-x-1 transition ease-in-out duration-300"></i>
                 </button>
@@ -229,10 +229,6 @@
 
         window.onload = () => {
             document.getElementById("formCad").reset();
-            document.getElementById("inpCpf").reset();
-        };
-
-        window.onload = () => {
             document.getElementById("formLogin").reset();
         };
 

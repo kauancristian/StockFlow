@@ -4,11 +4,14 @@
 
     class UsuarioModel extends Database {
 
-        private string $table = 'usuarios';
+        protected string $table;
 
         public function __construct()
         {
             parent::__construct();
+
+            $tables = require_once __DIR__ . '/../../.env/tables.php';
+            $this->table = $tables['table']['usuarios'] ?? 'usuarios'; 
         }
 
         public function getAll() {
@@ -66,6 +69,30 @@
             }
 
             return $result;
+        }
+
+        public function login($email, $senha) {
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                return false;
+            }
+
+            $sql = "SELECT id, nome, email, senha FROM {$this->table} WHERE email = :email LIMIT 1";
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindValue(':email', $email);
+            $stmt->execute();
+
+            $usuario = $stmt->fetch();
+
+            if(!$usuario) {
+                return false;
+            }
+
+            if(!password_verify($senha, $usuario['senha'])) {
+                return false; //Veirifca se a senha passada é igual a do usuario encontrado no banco!
+            }
+
+            return $usuario;
         }
 
         public function delete($id) {
