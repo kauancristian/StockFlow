@@ -128,22 +128,27 @@
     </div>
 
     <div class="h-screen">
-        <header class="bg-[#161A1C]/80 flex justify-between items-center h-[65px] fixed w-screen border-b border-b-[#262626] z-[500]">
-            <div class="flex items-center space-x-2 ml-6">
-                <h1 class="text-white funnel text-xl font-semibold">Stock<span class="text-[var(--green-color)] funnel"> Flow</span></h1>
-                <i class="bi bi-box-seam-fill text-[var(--green-color)] text-xl"></i>
-            </div>
+        <div class="h-[65px] w-screen lg:w-screen fixed bg-gradient-to-r from-[var(--green-color2)] via-[var(--green-color)] to-[var(--green-color2)] z-[9999]">
+            <header class="bg-[#161A1C] flex justify-between items-center h-[63.5px] fixed w-screen border-b border-b-[#262626] z-[500]">
+                <div class="flex items-center space-x-2 ml-6">
+                    <h1 class="text-white funnel text-xl font-semibold">Stock<span class="text-[var(--green-color)] funnel"> Flow</span></h1>
+                    <i class="bi bi-box-seam-fill text-[var(--green-color)] text-xl"></i>
+                </div>
 
-            <div class="mr-5">
-                <a href="../../index.php">
-                    <button class="bg-[#193125]/60 rounded-xl py-2 px-4 border border-gray-600 hover:-translate-x-1 transition ease-in-out duration-150 btnReturn">
-                        <i class="bi bi-arrow-left text-[var(--green-color)]"></i>
+                <div class="mr-6 flex space-x-3">
+                    <button class="border py-1 px-3 rounded-full border-gray-600 hover:bg-gray-100/10 transition ease-in-out duration-300">
+                        <i class="bi bi-brightness-high-fill text-yellow-500"></i>
                     </button>
-                </a>
-            </div>
-        </header>
+                    <a href="../../index.php">
+                        <button class="bg-[#193125]/60 rounded-xl py-2 px-4 border border-gray-600 hover:-translate-x-1 transition ease-in-out duration-150 btnReturn">
+                            <i class="bi bi-arrow-left text-[var(--green-color)]"></i>
+                        </button>
+                    </a>
+                </div>
+            </header>
+        </div>
 
-        <div id="modalform" class="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 m-auto fixed w-[90%] sm:w-[460px] h-[480px] sm:h-[470px] rounded-2xl bg-[#161A1C] border border-gray-700 overflow-y-auto">
+        <div id="modalform" class="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 m-auto fixed w-[90%] sm:w-[460px] h-[480px] sm:h-[470px] rounded-2xl bg-[#161A1C] border border-gray-700 overflow-y-auto ">
             <div class="text-center flex flex-col items-center pt-8 space-y-2">
                 <div class="flex flex-col items-center space-y-2">
                     <i class="bi bi-person-fill text-5xl text-[var(--green-color)]"></i>
@@ -164,7 +169,7 @@
             </div>
 
             <!-- Form Login -->
-            <form novalidate id="formLogin" class="flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="../../actions/usuarioAction.php" method="POST">
+            <form novalidate id="formLogin" class="flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="../../actions/usuarioAction.php?action=login" method="POST">
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-envelope-fill absolute text-[var(--green-color)]"></i>
                     <input class="py-2 bg-transparent outline-none border-b border-b-gray-400 text-white w-full indent-6 transition ease-in-out duration-300 inputsLogin" type="email" name="email" id="" placeholder="" maxlength="100">
@@ -177,7 +182,7 @@
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="senha">Senha</label>
                 </div>
 
-                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group" name="action" value="login">
+                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group">
                     <p class="inter">Acessar Sistema</p>
                     <i class="bi bi-box-arrow-in-right group-hover:translate-x-1 transition ease-in-out duration-300"></i>
                 </button>
@@ -188,7 +193,7 @@
             </form>
 
             <!-- Form Cad -->
-            <form novalidate id="formCad" class="hidden flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="../../actions/usuarioAction.php" method="POST">
+            <form novalidate id="formCad" class="hidden flex flex-col w-[87%] mx-auto pt-4 gap-5 forms" action="../../actions/usuarioAction.php?action=cadastro" method="POST">
 
                 <div class="w-full flex items-center relative">
                     <i class="bi bi-person-fill absolute text-[var(--green-color)]"></i>
@@ -213,7 +218,7 @@
                     <label class="absolute ml-6 text-gray-400 inter transition ease-in-out duration-300" for="senha">Senha</label>
                 </div>
 
-                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group" name="action" value="cadastro">
+                <button class="text-white font-semibold bg-[var(--green-color)] py-2 rounded-lg hover:bg-[var(--green-color2)] transition ease-in-out duration-300 flex items-center justify-center space-x-2 group">
                     <p class="inter">Verificar Primeiro Acesso</p>
                     <i class="bi bi-key-fill group-hover:translate-x-1 transition ease-in-out duration-300"></i>
                 </button>

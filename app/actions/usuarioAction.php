@@ -4,7 +4,7 @@
 
     $controller = new UsuarioController();
 
-    $action = $_POST['action'] ?? $_GET['action'] ?? '';
+    $action = $_GET['action'] ?? '';
 
     switch($action) {
 
@@ -21,7 +21,7 @@
             exit;
         break;    
 
-        case 'cadastro':
+        case 'cadastro': // Funcionando
             $nome = $_POST['nome'] ?? '';
             $cpf = $_POST['cpf'] ?? '';
             $email = $_POST['email'] ?? '';

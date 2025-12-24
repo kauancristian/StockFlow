@@ -1,9 +1,9 @@
 <?php 
 
     return $tables = [
-        'table' => [
-            'usuarios' => 'usuarios',
-            'produtos' => 'produtos'
+        'stock_flow_system' => [
+            1 => 'usuarios',
+            2 => 'produtos'
         ]
     ]
 

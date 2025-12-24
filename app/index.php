@@ -17,6 +17,7 @@
 
         :root{
             --green-color: #26D968;
+            --green-color2: #229e4fff;
             --blue-color: #1291db;
             --orange-color: #d55900;
             --yellow-color:#f9f936;
@@ -120,21 +121,27 @@
 </head>
 <body class="bg-gradient-to-l from-[var(--colorBg1)] to-[var(--colorBg2)] min-h-[100vh]">
     <div class="h-screen">
-        <header class="bg-[#161A1C]/80 flex justify-between items-center h-[65px] fixed w-screen border-b border-b-[#262626] z-[9999]">
-            <div class="flex items-center space-x-2 ml-6">
-                <h1 class="text-white funnel text-xl font-semibold">Stock<span class="text-[var(--green-color)] funnel"> Flow</span></h1>
-                <i class="bi bi-box-seam-fill text-[var(--green-color)] text-xl"></i>
-            </div>
 
-            <div class="mr-6">
-                <a href="./main/views/login.php">
-                    <button class="border border-gray-600 py-2 px-4 rounded-xl flex items-center space-x-2 btnEnter hover:translate-x-1 transition ease-in-out duration-150 bg-[#193125]/60">
-                        <p class="text-[var(--green-color)] inter text-sm font-semibold">Entrar</p>
-                        <i class="bi bi-box-arrow-in-right text-[var(--green-color)]"></i>
+        <div class="h-[65px] w-screen lg:w-screen fixed bg-gradient-to-r from-[var(--green-color2)] via-[var(--green-color)] to-[var(--green-color2)] z-[9999]">
+            <header class="bg-[#161A1C] flex justify-between items-center h-[63.5px] fixed w-screen border-b border-b-[#262626] z-[9999]">
+                <div class="flex items-center space-x-2 ml-6">
+                    <h1 class="text-white funnel text-xl font-semibold">Stock<span class="text-[var(--green-color)] funnel"> Flow</span></h1>
+                    <i class="bi bi-box-seam-fill text-[var(--green-color)] text-xl"></i>
+                </div>
+
+                <div class="mr-6 flex space-x-3">
+                    <button class="border py-1 px-3 rounded-full border-gray-600 hover:bg-gray-100/10 transition ease-in-out duration-300">
+                        <i class="bi bi-brightness-high-fill text-yellow-500"></i>
                     </button>
-                </a>
-            </div>
-        </header>
+                    <a href="./main/views/login.php">
+                        <button class="border border-gray-600 py-2 px-4 rounded-xl flex items-center space-x-2 btnEnter hover:translate-x-1 transition ease-in-out duration-150 bg-[#193125]/60">
+                            <p class="text-[var(--green-color)] inter text-sm font-semibold">Entrar</p>
+                            <i class="bi bi-box-arrow-in-right text-[var(--green-color)]"></i>
+                        </button>
+                    </a>
+                </div>
+            </header>
+        </div>
 
         <div id="sec1Infs" class="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 absolute mx-auto w-full">
             <div class="flex flex-col justify-center items-center gap-8 translate-y-5 sm:-translate-y-5 lg:translate-y-10">

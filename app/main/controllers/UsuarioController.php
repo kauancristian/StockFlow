@@ -20,7 +20,7 @@
         }
 
         public function cadastrar($nome, $cpf, $email, $senha) {
-            return $this->model->insert($nome, $cpf, $email, $senha);
+            return $this->model->cadastro($nome, $cpf, $email, $senha);
         }
 
         public function login($email, $senha) {
