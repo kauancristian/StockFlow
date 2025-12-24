@@ -30,8 +30,7 @@
                 return false;
             }
 
-            session_start();
-
+            session_start(); //HTTP BURRO - Guarda isso na Window
             $_SESSION['usuario'] = [
                 'id' => $usuario['id'],
                 'nome' => $usuario['nome'],
